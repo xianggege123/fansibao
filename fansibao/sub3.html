@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+	<link rel="stylesheet" type="text/css" href="css/app.css"/>
+</head>
+<body>
+	<style>
+		.mui-row{
+			width:100%;
+			height:80px;
+			line-height: 80px;
+		}
+	</style>
+ <div class="mui-content" style="">
+    <div class="mui-row">
+    	<div class="mui-col-xs-6 mui-col-sm-6 mui-text-center">
+  		 <a href="">账户名</a>
+   		</div>
+   		<div class="mui-col-xs-6 mui-col-sm-6 mui-text-center">
+		    <a href="">我的账户余额</a>
+		</div>
+	</div>
+    	
+    <ul class="mui-table-view">
+    	<li class="mui-table-view-cell">
+    	    <a class="mui-navigate-right">
+    	    	<span class="mui-icon-extra mui-icon-extra-gold"></span>我的收益
+    	    </a>
+    	</li>
+    	<li class="mui-table-view-cell">
+    	    <a class="mui-navigate-right" id="news">
+    	        <span class="mui-icon mui-icon-email"></span>消息中心
+    	    </a>
+    	</li>
+    	<li class="mui-table-view-cell">
+    	    <a class="mui-navigate-right">
+    	        <span class="mui-icon  mui-icon-locked"></span> 密码修改
+    	    </a>
+    	</li>
+    </ul>
+    <br /><br />
+    <button type="button" class="mui-btn mui-btn-blue mui-btn-block mui-text-center" style="margin: 0 auto; width: 95%;">退出登录</button>
+    
+</div>
+    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+ <script type="text/javascript">
+ 	document.getElementById('news').addEventListener('click',function(){
+ 		mui.openWindow({
+ 			url:'XiaoXiLieBiao.html',
+ 			id:'news'
+ 		});
+ 	});
+var _self, _prev, index, timer;
+mui.plusReady(function(){
+    _self = plus.webview.currentWebview();
+    _prev = plus.webview.getWebviewById('sub2.html');
+    index = plus.webview.getLaunchWebview();
+    _self.drag(
+        {
+            direction : "right",
+            moveMode  :　"followFinger"
+        },
+        {
+            view　              :　_prev,
+            moveMode  : "follow"
+        },
+        function(e){
+            if(timer != null){clearTimeout(timer); }
+            timer = setTimeout(function(){
+                index.evalJS("h('#tabBar').find('a').removeClass('mui-active'); h('#navBarSecond').addClass('mui-active');");
+            }, 100);
+        }
+    );
+});
+</script>
+</body>
+</html>

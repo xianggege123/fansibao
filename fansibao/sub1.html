@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+	<!--App自定义的css-->
+	<link rel="stylesheet" type="text/css" href="css/app.css"/>
+</head>
+    <style type="text/css">
+    	
+    	.mui-icon-extra{
+    		font-size: 40px;
+    	}
+ 		li{
+ 			padding: 0px;
+ 			margin: 0px;
+ 		}
+    </style>
+<body>
+
+	<div class="mui-content">
+		<div class="mui-row">
+		    <div class="mui-col-xs-6 mui-col-sm-6 mui-text-center">
+	        <div class="mui-icon-extra mui-icon-extra-sweep mui-content-padded" style=" font-size: 50px; padding: 10px 0px 0px;">
+			</div>
+			<p>扫码核销</p>
+	    </div>
+    <div class="mui-col-xs-6 mui-col-sm-6 mui-text-center">
+        <div class="mui-icon mui-icon-camera" style="font-size: 65px; padding-top: 7px;">
+		</div>
+		<p>会员识别</p>
+    </div>
+</div>
+		<ul class="mui-table-view mui-grid-view mui-grid-9">
+		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon-extra mui-icon-extra-topic" style="font-size: 40px;"></span>
+		        <div class="mui-media-body">我的订单</div>
+		    </a>
+		</li>
+		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon mui-icon-chat"><span class="mui-badge mui-badge-red">2</span></span>
+		        <div class="mui-media-body">在线客服</div>
+		    </a>
+		</li>
+		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon mui-icon-map"></span>
+		        <div class="mui-media-body">员工小店</div>
+		    </a>
+		</li>
+		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon-extra mui-icon-extra-card"></span>
+		        <div class="mui-media-body">会员服务</div>
+		    </a>
+		</li>
+		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon-extra mui-icon-extra-trend"></span>
+		        <div class="mui-media-body">经营数据</div>
+		    </a>
+		</li>
+		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon mui-icon-email"></span>
+		        <div class="mui-media-body">总部消息</div>
+		    </a>
+		</li>
+		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon mui-icon-paperplane"></span>
+		        <div class="mui-media-body">分销管理</div>
+		    </a>
+		</li>
+		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon-extra mui-icon-extra-peoples"></span>
+		        <div class="mui-media-body">员工管理</div>
+		    </a>
+		</li>
+		    </ul>
+		
+
+		
+
+
+	<img  align="center" style="padding: 5px 0px;" src="images/main-footer-pic.jpg" width="100%"/>
+
+	</div>
+	
+    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+   <script type="text/javascript">
+var _self, _next, timer;
+mui.plusReady(function(){
+    _self = plus.webview.currentWebview();
+    _next = plus.webview.getWebviewById('sub2.html');
+    index = plus.webview.getLaunchWebview();
+    _self.drag(
+        {
+            direction : "left",
+            moveMode  :　"followFinger"
+        },
+        {
+            view　              :　_next,
+            moveMode  : "follow"
+        },
+        function(e){
+            if(timer != null){clearTimeout(timer); }
+            timer = setTimeout(function(){
+                index.evalJS("h('#tabBar').find('a').removeClass('mui-active'); h('#navBarSecond').addClass('mui-active');");
+            }, 100);
+        }
+    );
+});
+</script>
+</body>
+</html>

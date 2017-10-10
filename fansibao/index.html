@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+	<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+
+
+
+
+</head>
+<body>
+	   <style type="text/css">
+	   	.hh{float: right;line-height:inherit;}
+	   </style>
+    <header class="mui-bar mui-bar-nav">
+	    <h1 class="mui-title">粉丝煲<span class="mui-icon mui-icon-email hh"></span></h1>
+	    
+	    
+	</header>
+
+	<footer>
+			<nav class="mui-bar mui-bar-tab" id="tabBar">
+		        <a class="mui-tab-item mui-active" id="navBarHome">
+		            <span class="mui-icon  mui-icon-home"></span>
+		            <span class="mui-tab-label">首页</span>
+		        </a>
+		        <a class="mui-tab-item" id="navBarSecond">
+		            <span class="mui-icon mui-icon-paperplane"></span>
+		            <span class="mui-tab-label">我的集客</span>
+		        </a>
+		        <a class="mui-tab-item" id="navBarThree">
+		            <span class="mui-icon mui-icon-person"></span>
+		            <span class="mui-tab-label">个人中心</span>
+		        </a>
+		    </nav>
+	</footer>
+	
+	<script type="text/javascript" src="js/h.js"></script>
+<script type="text/javascript">
+mui.init({
+    subpages : [
+        {
+            url : 'sub1.html',
+            id  : 'sub1.html',
+            styles : {
+                top    : '44px',
+                bottom : '44px',
+                width  : "100%"
+            }
+        },
+        {
+            url : 'sub2.html',
+            id  : 'sub2.html',
+            styles : {
+                left   : '100%',
+                top    : '44px',
+                bottom : '44px',
+                width  : "100%"
+            }
+        },
+        {
+            url : 'sub3.html',
+            id  : 'sub3.html',
+            styles : {
+                left   : '200%',
+                top    : '44px',
+                bottom : '44px',
+                width  : "100%"
+            }
+        }
+    ]
+});
+h('#navBarHome').tap(function(){changSub(1);});
+h('#navBarSecond').tap(function(){changSub(2);});
+h('navBarThree').tap(function(){changSub(3);});
+function changSub(index){
+    var sub1 = plus.webview.getWebviewById('sub1.html');
+    var sub2 = plus.webview.getWebviewById('sub2.html');
+    var sub3 = plus.webview.getWebviewById('sub3.html');
+    sub1.setStyle({left: (index - 1) * 100 + "%"});
+    sub2.setStyle({left: (2 - index) * 100 + "%"});
+    sub3.setStyle({left: (3 - index) * 100 + "%"});
+}
+</script>
+	
+	
+</body>
+</html>
